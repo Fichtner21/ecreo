@@ -2,17 +2,16 @@
 <html lang="pl-PL">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Van Hagen</title>
     <link href="styles/style.css" rel="stylesheet">    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.js"></script>  -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"></script>      -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>       
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
   crossorigin=""></script>
   <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/"></script>
@@ -20,21 +19,59 @@
 <body>
     <header>
     </header>
-    <section id="map-wrapper"> 
-
-        <div id="map"></div>     
-
-        <div class="list">
-            <div id="ParisMarker" title="Paris Air Show">Paris Air Show</div>   
-            <div id="OtherMarker" title="Other Show">Other show</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 site">
+                <div class="site__logo">
+                    <img src="images/logo.png"/>
+                </div>
+            </div>
+            <div class="col-md-1 name">                
+                <div class="name__desc">
+                    <span>VAN<strong>&nbsp;&nbsp;HAGEN</strong></span>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-1 work">
+                <div class="work__item">
+                    <a href="/" title="OUR WORK">OUR WORK</a>
+                </div>
+                <div class="work__item">
+                    <a href="/" title="OUR WORK">TECHNOLOGY PROCESS</a>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-3">
+                <div class="nav-item">
+                    <a href="/" title="ABOUT US">ABOUT US</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/" title="CONTACT">CONTACT</a>
+                </div>
+                <div class="nav-item">
+                    <div class="lang">
+                        <span><i class="fas fa-chevron-down"></i>PL</span>
+                        <div class="languages">
+                            <div><a href="#EN" title="English">EN</a></div>
+                            <div><a href="#DE" title="Deustch">DE</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-   
-    </section>
-    
-    <footer>
-        
-    </footer>
-    <!-- <script type="text/javascript" src="js/imageMapResizer.js"></script> -->
+        <div class="row title">
+            <div class="offset-md-1 title__desc">World ahead</div>
+        </div> 
+        <section id="map-wrapper">            
+            <div id="map"></div>
+            
+                <div class="list">
+                    <div id="ParisMarker" data-catchh="ParisMarker" title="Paris Air Show">Paris Air Show</div>   
+                    <div id="OtherMarker" data-catchh="OtherMarker" title="Other Show">Other show</div>
+                </div>
+              
+        </section> 
+        </div>    
+    <footer>        
+    </footer>    
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

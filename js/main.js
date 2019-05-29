@@ -1,4 +1,14 @@
-$(document).ready(function(){	
+$(document).ready(function(){
+
+	var parisFromList = $('.fra');
+	var list = $('.list');
+
+////
+	 var langSpan = $('.lang').find('span');
+	 var langDivs = $('.languages').find('div');
+	 console.log('lang span + ' + langSpan.length);
+	 console.log('langDivs + ' + langDivs.length);
+	
  
     var CircleIcon = L.Icon.extend({
     	options: {
@@ -63,51 +73,47 @@ $(document).ready(function(){
 	  			//console.log("icon = " + JSON.stringify(icon));
 	    	var markerID = markers[i].options.title;
 	        if (markerID == id){
-	            markers[i].openPopup();	            
-	        };	       
+	            markers[i].openPopup();
+	        };	
+
+	        
+	        //console.log('icon ' + icon);        	       
 	    }
 	}
 
-	function zoomMarker(e){
+	var markerHide = $('.leaflet-marker-icon');
+    markerHide.hide();
+
+	function compareTitle(c){
 		//for(var i in markers){
-			//var markerZoom = markers[i].getLatLng();
-			//console.log(markerZoom);
-
-			var latLngs = [e.target.getLatLng()];
-  			var markerBounds = L.latLngBounds(latLngs);
-  			map.fitBounds(markerBounds);
-
-
+			//console.log("markers: " + markers[i].options.title);
+			if($('.list').find('div').data('catch') == markers[i].options.title){
+				
+				console.log("to jest markers[i].options.title " + markers[i].options.title);
+				console.log("$('.list').find('div').data('catch') " + $('.list').find('div').data('catch'));
+				console.log('pasuje');
+				return true;
+			} else {
+				console.log('nie pasuje');
+				return false;
+			}
 		//}
-	}
+	}	
 
-	zoomMarker();
+	$('.list').children().each( function(){
+		$('list').find('div').on('click',function(){
+			compareTitle();
+		})
+	})
 
-
+	
 
 	$('.list').children().click(function(){
 		var markerTitle = $('.leaflet-marker-pane').find('img').attr('title');
 	   	markerFunction($(this)[0].id);
-	  	var e = $(this)[0].id;
-	  	markerFunction($(this)[0].icon);
-	  	var ico = $(this)[0].icon;
-	  	console.log(JSON.stringify(ico));
-
-	  	var zoom = zoomMarker($(this)[0].latlng);
-	  	console.log(zoom);
-
-	  	
-
-	  	if(e == markerTitle){
-	  		//console.log("gora title " + markerTitle);
-	  		//console.log("dol e " + e);	  		
-	  	} else {
-	  		//console.log('nie');
-	  	}
-
 	});
 
-	 var list = $('.list');
+	 
 
 	 list.on('click', function(e){
 	 	e.stopPropagation();
@@ -116,10 +122,15 @@ $(document).ready(function(){
 	 		if(list.is(':hidden')){
 	 			list.fadeIn('slow');
 	 		}
-	 	})
-	 })	
+	 	});
 
-	   
+	 	$(document).on('mousemove', function(m){
+	 		if($(window).height() - m.pageY < 100){
+	 			list.fadeIn('slow');
+	 		}
+	 	});
+	 });	
+   
 	map.dragging.disable();
 	map.touchZoom.disable();
 	map.doubleClickZoom.disable();
