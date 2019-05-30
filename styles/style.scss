@@ -26,11 +26,19 @@ body {
 			display: flex;
 			justify-content: flex-end; 
 			align-items: center;
+
+			@media screen and (max-width: 576px){
+				display: none;
+			}
 		}
 
 		.name {
 			display: flex;
 			align-items: center;
+
+			@media screen and (max-width: 576px){
+				display: none;
+			}
 
 			&__desc {
 				color: #fff;
@@ -40,6 +48,10 @@ body {
 		.work {
 			display: flex;
 			justify-content: space-between;
+
+			@media screen and (max-width: 576px){
+				display: none;
+			}
 
 			&__item {				
 				display: flex;
@@ -61,6 +73,11 @@ body {
 
 		.info {
 			justify-content: space-between;
+
+			@media screen and (max-width: 576px){
+				display: none;
+			}
+
 			&__item {
 				display: flex;
 				align-items: center;
@@ -77,21 +94,39 @@ body {
 		.lang {
 			align-items: center;
 			justify-content: flex-end;
+
+			@media screen and (max-width: 576px){
+				display: none;
+			}
 		}					
 	}
 
 	.title {
 		margin-top: 100px;
 
+		@media screen and (max-width: 576px){
+			margin-top: 0;
+			justify-content: center;
+		}
+
 		&__desc {
 			font-size: 118px;
 			font-weight: 500;
 			color: #fff;
+
+			@media screen and (max-width: 576px){
+				font-size: 60px;
+				letter-spacing: 1px;
+			}
 		}
 	}
 
 	.units {
 		margin-top: 100px;
+
+		@media screen and (max-width: 576px){			
+			margin: 40px 15px;
+		}
 
 		&__column {
 			flex-direction: column;
@@ -99,6 +134,16 @@ body {
 			font-weight: 500;
 			max-width: 220px;
 			color: #fff;
+
+			@media screen and (max-width: 576px){
+				font-size: 20px;
+				line-height: 36px;
+				max-width: 160px;
+
+				:last-of-type {
+					margin-bottom: 40px;
+				}
+			}
 
 			.unit {
 				position: relative;
@@ -181,9 +226,9 @@ body {
 		content: '';
 		width: 10px;
 		height: 2px;
-		background: #333333;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #333333;  
+		background: -webkit-linear-gradient(to right, #dd1818, #333333);  
+		background: linear-gradient(to right, #dd1818, #333333); 
 		transition: all .5s;		
 	}
 
@@ -192,9 +237,9 @@ body {
 		content: '';
 		width: 210px;
 		height: 2px;
-		background: #333333;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #333333;  
+		background: -webkit-linear-gradient(to right, #dd1818, #333333);  
+		background: linear-gradient(to right, #dd1818, #333333); 
 		transition: all .5s;
 	}
 
@@ -203,9 +248,9 @@ body {
 		content: '';
 		width: 10px;
 		height: 2px;
-		background: #333333;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #333333;  
+		background: -webkit-linear-gradient(to right, #dd1818, #333333);  
+		background: linear-gradient(to right, #dd1818, #333333); 
 		transition: all .5s;		
 	}
 }
@@ -224,7 +269,6 @@ body {
 	width: 210px;
 }
 
-
 #map-wrapper {
 	position: fixed;
   	top:0 ;
@@ -237,15 +281,13 @@ body {
 	  	height: 100%;
 	  	width: 100vw;
 	  	outline: none;
-	  	touch-action: none;
-	  	//background-color: #445a71;
+	  	touch-action: none;	  	
 	  	background-color: #9d0a0f;
 
-	  	.parisMarker, .otherMarker {
+	  	.parisMarker, .otherMarker, .bauMarker {
 	  		.leaflet-popup-content-wrapper {
 	  			background-color: rgba(0,0,0,0);
-	  			color: #fff;
-	  			//font-size: 20px;
+	  			color: #fff;	  			
 	  			box-shadow: none;
 	  			z-index: 2;	  			
 
@@ -299,8 +341,15 @@ body {
 	}
 }
 
-select {
-	//padding:4px;
+.vis {
+	visibility: visible;
+}
+
+.hid {
+	visibility: hidden;
+}
+
+select {	
     margin: 0;
     background: rgba(0,0,0,0);
     color: #fff;
@@ -336,8 +385,7 @@ select:before {
     font-size: 11px;
     color: blue;
     left: -10px; 
-    top: 5px;
-    //padding: 0 0 2px;
+    top: 5px;    
     position: absolute;
     pointer-events: none;
 }
