@@ -38,6 +38,18 @@ $(document).ready(function(){
     	'className' : 'bauMarker'
     }
 
+    var MosbuildPopup = "<span class='up-line'>Mosbuild</span><br/><div class='over'><div class='line'></div><div class='circle'></div></div><span class='below-line'>Mosbuild(Brasil)</span>";
+    var MosbuildOptions = {
+    	'maxWidth' : '300',
+    	'className' : 'bauMarker'
+    }
+
+     var ISHPopup = "<span class='up-line'>ISH</span><br/><div class='over'><div class='line'></div><div class='circle'></div></div><span class='below-line'><a href='#'>ISH (Egypt)</a></span>";
+    var ISHOptions = {
+    	'maxWidth' : '300',
+    	'className' : 'bauMarker'
+    }
+
     var map = L.map('map', {
     	crs: L.CRS.Simple,
     	zoomControl: false, // usuniecie + - zoom
@@ -59,6 +71,10 @@ $(document).ready(function(){
     markers.push(OtherMarker);
     var BauMarker = L.marker([-50,-600], {title: 'BauMarker', icon:OtherIcon}).on('click', function(e){console.log(e.latlng)}).addTo(map).bindPopup(BauPopup, BauOptions);	
     markers.push(BauMarker);
+    var MosbuildMarker = L.marker([-380, -250], {title: 'MosbuildMarker', icon:OtherIcon}).on('click', function(e){console.log(e.latlng)}).addTo(map).bindPopup(MosbuildPopup, MosbuildOptions);	
+    markers.push(MosbuildMarker);
+    var ISHMarker = L.marker([-120, 140], {title: 'ISHMarker', icon:OtherIcon}).on('click', function(e){console.log(e.latlng)}).addTo(map).bindPopup(ISHPopup, ISHOptions);	
+    markers.push(ISHMarker);
     map.setView([70,120], 1);
     map.fitBounds(bounds);
 
