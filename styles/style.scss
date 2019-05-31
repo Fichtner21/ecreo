@@ -128,6 +128,10 @@ body {
 			margin: 40px 15px;
 		}
 
+		@media screen and (max-width: 1500px){
+			margin: 80px 0 20px 0;
+		}
+
 		&__column {
 			flex-direction: column;
 			font-size: 24px;
@@ -173,6 +177,10 @@ body {
 
 			@media all and (max-width: 576px){
 				margin-left: 10px;
+			}
+
+			@media screen and (max-width: 1366px){
+				margin-top: 20px;
 			}
 
 			&__title {
@@ -370,6 +378,7 @@ select {
     option {
     	color: red;
     	background-color: rgba(0,0,0,0.2);
+
     }
 }
 
